@@ -12,6 +12,8 @@ public class SerialHandler : MonoBehaviour
     [SerializeField] Button startButton;
     [SerializeField] GameObject audioVisualizerScreen;
     [SerializeField] GameObject portSelectionScreen;
+    [SerializeField] TextMeshProUGUI baudRate;
+    [SerializeField] TMP_InputField valuePrinter;
     [Header("References")]
     [SerializeField] SerialController controller;
     [SerializeField] AudioSource source;
@@ -42,6 +44,7 @@ public class SerialHandler : MonoBehaviour
     void OnStartClicked()
     {
         audioVisualizerScreen.SetActive(true);
+        controller.baudRate = baudRate.text.parseToInt();
         portSelectionScreen.SetActive(false);
         controller.StartCaptureSerialData();
     }
@@ -68,10 +71,11 @@ public class SerialHandler : MonoBehaviour
     {
         this.message = message;
         rangeValue = this.message.parseToInt();
+        valuePrinter.text=$"{rangeValue}";
         int index = audioMapping.FindIndex(x=> rangeValue>=x.from && rangeValue<=x.to );
         if(index==-1)
         {
-            Debug.LogError("PLAY NOTHING");
+            Debug.LogWarning("PLAY NOTHING");
         }
         else
         {
