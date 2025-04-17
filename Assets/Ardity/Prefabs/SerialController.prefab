@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &128384
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 405068}
+  - component: {fileID: 11442534}
+  - component: {fileID: 5853228050562506930}
+  m_Layer: 0
+  m_Name: SerialController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &405068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128384}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &11442534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc5f48af2cffd747a079fe8c632e2c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portName: COM5
+  baudRate: 9600
+  serialHandler: {fileID: 5853228050562506930}
+  reconnectionDelay: 1000
+  maxUnreadMessages: 1
+--- !u!114 &5853228050562506930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8095466e102d6ce41be144d440e22c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropdown: {fileID: 0}
+  startButton: {fileID: 0}
+  audioVisualizerScreen: {fileID: 0}
+  portSelectionScreen: {fileID: 0}
+  controller: {fileID: 11442534}
+  source: {fileID: 0}
+  audioMapping:
+  - from: 585
+    to: 647
+    clip: {fileID: 8300000, guid: b35bf6ef1d6e7c14a82fa1c3dc36d289, type: 3}
+  - from: 611
+    to: 675
+    clip: {fileID: 8300000, guid: 1bf438fc708e57c4294bb44ee0917094, type: 3}
+  - from: 639
+    to: 707
+    clip: {fileID: 8300000, guid: c1f7009c5a27b644c94a6e6e75ebbbb4, type: 3}
+  - from: 671
+    to: 741
+    clip: {fileID: 8300000, guid: eb9dbf36a49872b4f9dc14e1b2ab3dd8, type: 3}
+  - from: 675
+    to: 746
+    clip: {fileID: 8300000, guid: 23f0a9b0e5772824e9e9e34eb576c213, type: 3}
+  - from: 710
+    to: 784
+    clip: {fileID: 8300000, guid: f190063c4ed3e84499a00855977af0ba, type: 3}
+  - from: 748
+    to: 826
+    clip: {fileID: 8300000, guid: 029a5344f623e214fa92dcae5e7be3ef, type: 3}
+  - from: 797
+    to: 881
+    clip: {fileID: 8300000, guid: 6e8637694bf21df46914baac8d117678, type: 3}
+  - from: 846
+    to: 935
+    clip: {fileID: 8300000, guid: 5e0508c6b2081594ba4cad4fcc082ddf, type: 3}
