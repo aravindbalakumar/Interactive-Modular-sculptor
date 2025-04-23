@@ -12,8 +12,8 @@ public class SerialHandler : MonoBehaviour
     [SerializeField] Button startButton;
     [SerializeField] GameObject audioVisualizerScreen;
     [SerializeField] GameObject portSelectionScreen;
-    [SerializeField] TextMeshProUGUI baudRate;
-    [SerializeField] TMP_InputField valuePrinter;
+    [SerializeField] TMP_InputField baudRate;
+    [SerializeField] TextMeshProUGUI valuePrinter;
     [Header("References")]
     [SerializeField] SerialController controller;
     [SerializeField] AudioSource source;
@@ -36,6 +36,13 @@ public class SerialHandler : MonoBehaviour
         dropdown.AddOptions(options);
         dropdown.onValueChanged.AddListener(OnDropdownSelected);
         startButton.onClick.AddListener(OnStartClicked);
+        baudRate.onEndEdit.AddListener(UpdateBaudRate);
+    }
+    void UpdateBaudRate(string incomingString) 
+    {
+
+        controller.baudRate = incomingString.parseToInt();
+        Debug.Log(incomingString);
     }
     void OnDropdownSelected(int optionIndex)
     {
@@ -44,7 +51,6 @@ public class SerialHandler : MonoBehaviour
     void OnStartClicked()
     {
         audioVisualizerScreen.SetActive(true);
-        controller.baudRate = baudRate.text.parseToInt();
         portSelectionScreen.SetActive(false);
         controller.StartCaptureSerialData();
     }
@@ -52,6 +58,7 @@ public class SerialHandler : MonoBehaviour
     {
         dropdown.onValueChanged.RemoveAllListeners();
         startButton.onClick.RemoveAllListeners();
+        baudRate.onEndEdit.RemoveAllListeners();
     }
 
     public void OnConnectionEvent(bool connectionState)
