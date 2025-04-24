@@ -20,7 +20,7 @@ public class SerialHandler : MonoBehaviour
     [Header("Data")]
     [SerializeField] List<RangeToMusicMap> audioMapping;
     List<TMP_Dropdown.OptionData> options;
-    string message;
+    [SerializeField]string message;
     int audioIndex=-1;
     int rangeValue = -1;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -79,6 +79,7 @@ public class SerialHandler : MonoBehaviour
         this.message = message;
         rangeValue = this.message.parseToInt();
         valuePrinter.text=$"{rangeValue}";
+       
         int index = audioMapping.FindIndex(x=> rangeValue>=x.from && rangeValue<=x.to );
         if(index==-1)
         {
